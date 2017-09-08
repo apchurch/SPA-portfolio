@@ -10,21 +10,40 @@ var myRouter = new VueRouter({
             }
         },
         {
+            path: '/contact',
+            component: {
+                        template: `<div class="wrapper"><h1>Contact</h1></br>
+            <div class="section-center">
+                <form action="processForm.php" method="post">
+                    <label>First Name</label></br>
+                    <input type="text" placeholder="John" required/>
+                    <br></br>
+                    <label>Last Name</label></br>
+                    <input type="text" placeholder="Doe" required/>
+                    <br></br>
+                    <label>Email Address</label></br>
+                    <input type="email" placeholder="email@example.com" required/>
+                    <br></br>
+                    <label>Phone Number (Optional)</label></br>
+                    <input type="text" placeholder="123-456-7890"/>
+                    <br></br>
+                    <label>A Message</label></br>
+                    <textarea required></textarea>
+                    <br></br>
+                    <input type="submit" value="Send">
+                </form>
+            </div>
+        </div>`,
+                        
+            }
+        },
+        {
             path: '/about',
             component: function(resolve, reject){
                 $.get('/about.html', function(htmlFromServer){
                     resolve({
                         template: htmlFromServer
-                    })
-                })
-            }
-        },
-        {
-            path: '/contact',
-            component: function(resolve, reject){
-                $.get('/contact.html', function(htmlFromServer){
-                    resolve({
-                        template: htmlFromServer
+    
                     })
                 })
             }
